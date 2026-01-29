@@ -4,31 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Be Still</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Meta (optional but good) -->
-  <meta name="description" content="Be still. I am working in ways your mind cannot measure. — Mahadev">
-  <meta name="theme-color" content="#0b0f1a">
 </head>
-
 <body>
 
   <!-- Background -->
   <div class="bg"></div>
 
-  <!-- Dark overlay -->
+  <!-- Overlay -->
   <div class="overlay"></div>
 
-  <!-- Content -->
-  <div class="container">
-    <div class="text">
-      <h1>Be still.</h1>
-      <p>I am working in ways your mind cannot measure.</p>
-      <span>— Mahadev</span>
-    </div>
+  <!-- Main Content -->
+  <div class="container" id="mainText">
+    <h1>Be still.</h1>
+    <p>I am working in ways your mind cannot measure.</p>
+    <span class="author">— Mahadev</span>
+
+    <div class="hint">Tap anywhere</div>
   </div>
 
+  <!-- Choices -->
+  <div class="choices hidden" id="choices">
+    <button onclick="selectChoice('listen')">Listen</button>
+    <button onclick="selectChoice('reflect')">Reflect</button>
+    <button onclick="selectChoice('letgo')">Let go</button>
+  </div>
+
+  <!-- Result -->
+  <div class="result hidden" id="result"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,11 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const content = document.querySelector(".content");
+const mainText = document.getElementById("mainText");
+const choices = document.getElementById("choices");
+const result = document.getElementById("result");
 
-  // soft fade-in safety
-  content.style.opacity = "0";
+let opened = false;
 
-  setTimeout(() => {
-    content.style.transition = "opacity 2s ease";
-    content.style.opacity = "1";
-  }, 300);
+document.body.addEventListener("click", () => {
+  if (!opened) {
+    mainText.style.display = "none";
+    choices.classList.remove("hidden");
+    opened = true;
+  }
 });
+
+function selectChoice(type) {
+  choices.classList.add("hidden");
+
+  if (type === "listen") {
+    result.innerText = "Silence is also an answer.";
+  }
+
+  if (type === "reflect") {
+    result.innerText = "What you seek is already within you.";
+  }
+
+  if (type === "letgo") {
+    result.innerText = "Release control. Trust the flow.";
+  }
+
+  result.classList.remove("hidden");
+}

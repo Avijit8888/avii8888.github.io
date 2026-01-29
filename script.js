@@ -4,7 +4,7 @@ const result = document.getElementById("result");
 
 let opened = false;
 
-mainText.addEventListener("click", () => {
+document.body.addEventListener("click", () => {
   if (!opened) {
     mainText.style.display = "none";
     choices.classList.remove("hidden");
@@ -28,4 +28,4 @@ function selectChoice(type) {
   }
 
   result.classList.remove("hidden");
-} 
+}

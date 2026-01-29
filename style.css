@@ -8,13 +8,14 @@
 body {
   min-height: 100vh;
 
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("./mahadev.jpeg");
-
+  /* 🔥 FIXED BACKGROUND */
+  background-image: url("./mahadev.jpeg");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
+
+  /* soft overlay using pseudo-layer effect */
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -23,11 +24,20 @@ body {
   color: white;
 }
 
-/* Text container */
+/* DARK OVERLAY (not blocking image) */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
 .content {
+  position: relative;
+  z-index: 1;
   text-align: center;
   padding: 20px;
-  max-width: 800px;
   animation: fadeIn 2.5s ease;
 }
 
@@ -38,8 +48,7 @@ body {
 
 .content p {
   font-size: 1.3rem;
-  line-height: 1.6;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .content span {
@@ -49,29 +58,14 @@ body {
   color: #ff6b6b;
 }
 
-/* Mobile optimization */
+/* Mobile */
 @media (max-width: 768px) {
-  body {
-    background-position: center;
-  }
-
   .content h1 {
     font-size: 2.4rem;
   }
 
   .content p {
     font-size: 1.1rem;
-  }
-}
-
-/* Desktop wide screens */
-@media (min-width: 1200px) {
-  body {
-    align-items: flex-end;
-  }
-
-  .content {
-    margin-bottom: 120px;
   }
 }
 
